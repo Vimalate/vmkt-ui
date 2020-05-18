@@ -1,19 +1,66 @@
 <template>
   <div id="app">
-    <div class="row">
-      <vm-button type="primary">btn</vm-button>
-      <vm-button type="123">btn1</vm-button>
-      <vm-button type="info">btn1</vm-button>
-      <vm-button type="warning">btn1</vm-button>
-      <vm-button type="danger">btn1</vm-button>
-    </div>
+    <!-- <vm-dialog title="title"></vm-dialog>
+    <vm-dialog>
+      <template v-slot:title><h3>title</h3> </template>
+    </vm-dialog> -->
+    <!-- .sync 语法糖，通过 updata：xxx -->
+    <!-- <vm-dialog width="30%" top="150px" :visible.sync="visible"
+      >对话框
+      <template v-slot:footer>
+        <vm-button @click="visible = false">取消</vm-button>
+        <vm-button type="primary" @click="visible = false">确定</vm-button>
+      </template>
+    </vm-dialog>
+    <vm-button @click="visible = true" type="primary">显示</vm-button> -->
+    <!-- <vm-input placeholder="请输入" v-model="username"></vm-input> -->
+    <!-- <vm-input
+      type="text"
+      :value="username"
+      @input="username = $event.target.value"
+    ></vm-input> -->
+    <!-- <vm-input placeholder="请输入" v-model="username" clearable></vm-input>
+    <vm-input
+      placeholder="请输入"
+      type="password"
+      v-model="username"
+      show-password
+    ></vm-input> -->
+    <!-- <vm-switch v-model="active"></vm-switch>
+    <vm-switch
+      v-model="active"
+      active-color="#13ce66"
+      inactive-color="#ff4949"
+      name="username"
+    >
+    </vm-switch> -->
+    <vm-radio label="1" v-model="gender">男</vm-radio>
+    <vm-radio label="0" v-model="gender">女</vm-radio>
+    <vm-radio label="1" v-model="gender"></vm-radio>
+    <vm-radio label="0" v-model="gender"></vm-radio>
   </div>
 </template>
 
 <script>
 export default {
   name: "App",
-  components: {}
+  components: {},
+  data() {
+    return {
+      visible: false,
+      username: "12",
+      active: false,
+      gender: "1"
+    };
+  },
+  methods: {
+    fn() {
+      console.log(123);
+    }
+    // close(v) {
+    //   this.visible = v;
+    // }
+  }
 };
 </script>
 
@@ -22,6 +69,11 @@ export default {
   margin-bottom: 20px;
   .vm-button {
     margin-right: 20px;
+  }
+}
+#app {
+  .vm-input {
+    width: 180px;
   }
 }
 </style>
