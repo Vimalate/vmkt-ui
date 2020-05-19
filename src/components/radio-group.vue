@@ -14,9 +14,6 @@ export default {
     return {
       RadioGroup: this
     };
-  },
-  data() {
-    return {};
   }
 };
 </script>
