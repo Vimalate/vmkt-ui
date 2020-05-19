@@ -34,10 +34,14 @@
       name="username"
     >
     </vm-switch> -->
-    <vm-radio label="1" v-model="gender">男</vm-radio>
-    <vm-radio label="0" v-model="gender">女</vm-radio>
+    <!-- <vm-radio label="1" v-model="gender">男</vm-radio>
+    <vm-radio label="0" v-model="gender">女</vm-radio> -->
     <vm-radio label="1" v-model="gender"></vm-radio>
     <vm-radio label="0" v-model="gender"></vm-radio>
+    <vm-radio-group v-model="gender">
+      <vm-radio label="1">男</vm-radio>
+      <vm-radio label="0">女</vm-radio>
+    </vm-radio-group>
   </div>
 </template>
 

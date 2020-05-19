@@ -1,5 +1,5 @@
 <template>
-  <label class="vm-radio " :class="{ 'is-checked': label === value }">
+  <label class="vm-radio " :class="{ 'is-checked': label === model }">
     <span class="vm-radio__input">
       <span class="vm-radio__inner"></span>
       <input
@@ -21,6 +21,11 @@
 <script>
 export default {
   name: "VmRadio",
+  inject: {
+    RadioGroup: {
+      default: ""
+    }
+  },
   props: {
     label: {
       type: [String, Boolean, Number],
@@ -37,11 +42,17 @@ export default {
     // v-model 双向数据绑定，得提供 get 和set
     model: {
       get() {
-        return this.value;
+        return this.isGroup ? this.RadioGroup.value : this.value;
       },
       set(v) {
-        this.$emit("input", v);
+        this.isGroup
+          ? this.RadioGroup.$emit("input", v)
+          : this.$emit("input", v);
       }
+    },
+    isGroup() {
+      // 判断 radio 是否被 RadioGroup 包裹    ！！改为 Boolean 值
+      return !!this.RadioGroup;
     }
   },
   data() {
