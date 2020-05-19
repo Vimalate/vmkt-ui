@@ -42,12 +42,24 @@
       <vm-radio label="1">男</vm-radio>
       <vm-radio label="0">女</vm-radio>
     </vm-radio-group> -->
-    <vm-checkbox v-model="active">123 </vm-checkbox>
+    <!-- <vm-checkbox v-model="active">123 </vm-checkbox>
     <vm-checkbox-group v-model="hobby">
       <vm-checkbox label="抽烟"></vm-checkbox>
       <vm-checkbox label="喝酒"></vm-checkbox>
       <vm-checkbox label="烫头"></vm-checkbox>
-    </vm-checkbox-group>
+    </vm-checkbox-group> -->
+    <!-- model 数据双向绑定 -->
+    <vm-form :model="model" label-width="80px">
+      <vm-form-item label="用户名">
+        <vm-input
+          placeholder="请输入用户名"
+          v-model="model.username"
+        ></vm-input>
+      </vm-form-item>
+      <vm-form-item label="选择">
+        <vm-switch v-model="model.active"></vm-switch>
+      </vm-form-item>
+    </vm-form>
   </div>
 </template>
 
@@ -57,9 +69,11 @@ export default {
   components: {},
   data() {
     return {
+      model: {
+        username: "12",
+        active: true
+      },
       visible: false,
-      username: "12",
-      active: false,
       gender: "1",
       hobby: ["抽烟", "喝酒", "烫头"]
     };

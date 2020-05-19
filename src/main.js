@@ -8,6 +8,8 @@ import VmRadio from "./components/radio.vue";
 import VmRadioGroup from "./components/radio-group.vue";
 import VmCheckbox from "./components/checkbox.vue";
 import VmCheckboxGroup from "./components/checkbox-group.vue";
+import VmFormItem from "./components/form-item.vue";
+import VmForm from "./components/form.vue";
 import "./assets/fonts/font.scss";
 Vue.config.productionTip = false;
 Vue.component(VmButton.name, VmButton);
@@ -18,6 +20,8 @@ Vue.component(VmRadio.name, VmRadio);
 Vue.component(VmRadioGroup.name, VmRadioGroup);
 Vue.component(VmCheckbox.name, VmCheckbox);
 Vue.component(VmCheckboxGroup.name, VmCheckboxGroup);
+Vue.component(VmFormItem.name, VmFormItem);
+Vue.component(VmForm.name, VmForm);
 
 new Vue({
   render: h => h(App)
